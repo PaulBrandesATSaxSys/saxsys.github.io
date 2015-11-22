@@ -1,0 +1,33 @@
+{
+    "projects": [
+        {
+            "name": "assertj-javafx",
+            "description": "AssertJ assertions for JavaFX",
+            "url": "https://github.com/lestard/assertj-javafx",
+            "tags": [ "Java", "JavaFX" ],
+            "type": "Library"
+        },
+        {
+            "name": "advanced-binding",
+            "description": "advanced-bindings is a collection of useful helpers and custom binding implementations to simplify the development of applications that are heavily based on JavaFX's Properties and Bindings.",
+            "url": "https://github.com/lestard/advanced-bindings",
+            "tags": [ "Java", "JavaFX" ],
+            "type": "Library"
+        },
+        {
+            "name": "ObjectFiller.NET",
+            "description": "The .NET ObjectFiller fills the properties of your .NET objects with random data! It has a very comfortable Fluent API. You are able to fill object instances or you just let them create for you.",
+            "url": "https://github.com/Tynamix/ObjectFiller.NET",
+            "tags": [".Net", "Test", "C#" ],
+            "type": "Framework"
+        },
+        {
+            "name": "Dynamic Specs",
+            "description": "An easy to use specfication framework as extension for NUnit and MSTest.",
+            "url": "https://github.com/HerrLoesch/DynamicSpecs",
+            "tags": [ ".Net", "Test", "C#" ],
+            "type": "Framework"
+        }
+
+ ]
+}
