@@ -1,0 +1,21 @@
+{
+  "version": "0.9.0",
+  "name": "saxoniasystems-io",
+  "private": false,
+  "description": "Github.io page of Saxonia Systems AG",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "gulp": "^3.9.0", 
+    "gulp-debug": "^2.1.2", 
+    "gulp-inject": "^3.0.0", 
+    "gulp-sourcemaps": "^1.6.0", 
+    "gulp-tslint": "^4.2.2", 
+    "gulp-typescript": "^2.10.0", 
+    "gulp-rimraf": "^0.2.0" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saxsys/saxsys.github.io.git"
+  },
+  "homepage": "https://www.saxsys.de"
+}
