@@ -1,0 +1,21 @@
+#headerLink:hover {
+    text-decoration-color: white;
+}
+
+textarea {
+    background-color:rgba(0, 0, 0, 0.0) !important; 
+    border: 0; 
+    resize: none;
+    margin-bottom: 10px;
+    cursor: default;
+}
+
+h3 {
+    color: rgb(255, 255, 255);
+    background-color: rgb(242, 139, 0);
+    word-wrap: break-word;
+}
+
+.githubIcon {
+    width: 15px;
+}

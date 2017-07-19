@@ -1,0 +1,8 @@
+<div id="container" class="input-group">
+  <input id="filter" class="form-control" [(ngModel)]="filterService.projectNameFilter" 
+    type="search" list="suggestionList" placeholder="Suche nach Projekten" />
+  <datalist id="suggestionList">
+    <option *ngFor="let option of dataListValues" [value]="option" >
+  </datalist>
+  <button id="searchButton" class="input-group-addon"></button>
+</div>

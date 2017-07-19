@@ -1,0 +1,16 @@
+<div class="card-block">
+    <a id="headerLink" [href]="project.url" target="_blank"><h3 class="card-title p-2">{{ project.name }}</h3></a>
+
+    <textarea class="card-text form-control px-2 py-0" rows="5" readonly >{{ project.description }}</textarea>
+
+    <div class="pull-left pl-2">
+        <i class="fa fa-star githubIcon"></i> Stars: {{ project.stars }}
+    </div>
+    <div class="pull-left pl-3">
+        <i class="fa fa-code-fork githubIcon"></i> Forks: {{ project.forks }}
+    </div><br/>
+
+    <div class="p-0 pl-2">
+        <app-tag *ngFor="let tag of project.tags" [value]=tag></app-tag>
+    </div>
+</div>

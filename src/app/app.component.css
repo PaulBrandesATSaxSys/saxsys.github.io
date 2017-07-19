@@ -1,0 +1,144 @@
+#background {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#background-image {
+    margin: 0;
+}
+
+header {
+    padding: 3% 6%;
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-color: white;
+    border-style: solid;
+}
+
+#headerContainer {
+    display: flex;
+    align-items: flex-end;
+}
+
+#searchBox {
+    margin-top: 15px;
+    order: 2;
+    -webkit-order: 2;
+}
+
+#socialIcons {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 22px;
+    order: 1;
+    -webkit-order: 1;
+}
+
+#socialIcons a {
+    margin-right: 22px;
+}
+
+main {
+    margin: 0;
+    padding: 0 10px;
+}
+
+#overlay {
+    background-color: transparent;
+    padding-top: 17px;
+}
+
+#noProjects {
+    padding: 15px;
+}
+
+.row {
+    margin-top: 0;
+}
+
+.card-container {
+    margin-top: 15px;
+}
+
+footer {
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+}
+
+@media screen and (min-width: 600px) {
+    #background-image {
+        box-shadow: 20px 20px 100px rgba(0, 0, 0, 0.5);
+    }
+    footer {
+        color: #696969;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    #background-image {
+        margin-left: 5%;
+        margin-top: 40px;
+        margin-right: 5%;
+        min-height: 905px;
+        background-image: url('./../assets/images/Background.jpg'); 
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    main {
+        margin-top: 1em;
+    }
+
+    #overlay {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 5%;
+        padding-top: 1%;;
+    }
+
+    footer {
+        margin-right: 10%;
+        float: right;
+    }
+}
+
+@media screen and (min-width: 990px) {
+    #background-image {
+        margin-left: 10%;
+        margin-top: 90px;
+        margin-right: 10%;
+    }
+
+    main {
+        padding: 20px 5%;
+        margin-top: 0;
+    }
+
+    #searchBox {
+        margin-top: 0;
+        padding: 0;
+        order: 1;
+        -webkit-order: 1;
+    }
+
+    #socialIcons {
+        justify-content: flex-end;
+        margin-top: 0;
+        order: 2;
+        -webkit-order: 2;
+    }
+
+    #socialIcons a {
+        margin-right: 0;
+        margin-left: 15px;
+    }
+
+    .row {
+        margin-top: 15px;
+    }
+
+    .card-container {
+        margin-top: 0;
+    }
+}

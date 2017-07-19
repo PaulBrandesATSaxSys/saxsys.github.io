@@ -1,0 +1,106 @@
+#container {
+    margin-top: 15px;
+    background-color: white;
+    float: left;
+    width: 100%;
+}
+
+#filter {
+    background: transparent;
+    color: black;
+    border-width: 0;
+    padding-left: 3px;
+    width: 100%;
+    -webkit-transition: width 0.3s;
+    transition: width 0.3s;
+}
+
+#searchButton {
+    background-color: transparent;
+    background-image: url(../../assets/images/search.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-width: 0;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: black;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: black;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: black;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: black;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color: black;
+}
+
+@media screen and (min-width: 800px) {
+    #container {
+        background: transparent;
+    }
+
+    #filter {
+        color: white;
+        border-bottom-width: 1px;
+        border-color: white;
+        border-radius: 0;
+
+    }
+
+    #searchButton {
+        border-bottom-width: 1px;
+        border-color: white;
+        border-radius: 0;
+    }
+    
+    ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: white;
+    }
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: white;
+    opacity:  1;
+    }
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: white;
+    opacity:  1;
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+    }
+    ::-ms-input-placeholder { /* Microsoft Edge */
+    color: white;
+    }
+}
+
+@media screen and (min-width: 990px) {
+    #container {
+        width: auto;
+        max-width: 100%;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    #container {        
+        margin-top: 0;
+    }
+    
+    #filter {
+        width: 350px;
+        padding-left: 0.75rem;
+    }
+    #filter:hover {
+        width: 400px;
+    }
+    #filter:focus {
+        width: 410px;
+    }
+}
+
