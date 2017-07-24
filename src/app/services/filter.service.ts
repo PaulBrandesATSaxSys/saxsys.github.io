@@ -6,7 +6,7 @@ import { Project } from './../models/project.model';
 export class FilterService {
     private _projects: Array<Project>;
     private _filterProjectName: string;
-    private _filterTags: Array<string> = new Array<string>();
+    private _filterTag: string;
 
     constructor(private projectService: ProjectService) {
         this.projectService.projects.then(projects => {
@@ -20,43 +20,24 @@ export class FilterService {
         this._filterProjectName = value;
     }
 
-    public get filterTags(): Array<string> {
-        return this._filterTags;
+    public get filterTag(): string {
+        return this._filterTag;
     }
-
-    public addFilterTag(value: string) {
-        this._filterTags.push(value);
-    }
-    public removeFilterTag(value: string) {
-        const copyOfValues = Array.from(this._filterTags);
-        const index = copyOfValues.indexOf(value);
-        let elements = copyOfValues.splice(0, index);
-        elements = elements.concat(copyOfValues.splice(1));
-        this._filterTags = elements;
+    public set filterTag(value: string) {
+        this._filterTag = value;
     }
 
     public getFilteredProjects(): Array<Project> {
-        if (this.filterTags.length === 0 && !this.projectNameFilter) {
-            return this._projects;
+        if (this.projectNameFilter && this.filterTag) {
+            return this._projects.filter(project => this.nameStartsWith(project.name, this.projectNameFilter) &&
+                this.includesTag(project.tags, this.filterTag));
+        } else if (this.projectNameFilter) {
+            return this._projects.filter(project => this.nameStartsWith(project.name, this.projectNameFilter));
+        } else if (this.filterTag) {
+            return this._projects.filter(project => this.includesTag(project.tags, this.filterTag));
         } else {
-            return this._projects.filter(project =>
-                this.includesTag(project.tags, this.filterTags) ||
-                this.nameStartsWith(project.name, this.projectNameFilter));
+            return this._projects;
         }
-    }
-
-    private includesTag(projectTags: Array<string>, filterTags: Array<string>): boolean {
-        let includesTag = false;
-        for (const item of projectTags) {
-            for (let tag of filterTags) {
-                tag = tag.toLowerCase().trim();
-                if (item.toLowerCase().includes(tag)) {
-                    includesTag = true;
-                    break;
-                }
-            }
-        }
-        return includesTag;
     }
 
     private nameStartsWith(projectName: string, filterValue: string): boolean {
@@ -66,5 +47,16 @@ export class FilterService {
         projectName = projectName.toLowerCase();
         filterValue = filterValue.toLowerCase();
         return projectName.startsWith(filterValue);
+    }
+
+    private includesTag(projectTags: Array<string>, filterTag: string): boolean {
+        let includesTag = false;
+        for (const tag of projectTags) {
+            if (tag.toLowerCase() === this.filterTag.toLowerCase()) {
+                includesTag = true;
+                break;
+            }
+        }
+        return includesTag;
     }
 }

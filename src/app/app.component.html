@@ -1,6 +1,13 @@
 <div id="background">
   <div id="background-image">
 
+  <div *ngIf="isInternetExplorer" class="alert alert-warning alert-dismissable fade show">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <p>This web application may not work properly with Internet Explorer</p>
+  </div>
+
     <header>
       <div id="headerContainer" class="row">
         <div class="col-lg-5">
@@ -33,23 +40,20 @@
          <a href="https://github.com/saxsys" target="_blank">
            <img src="../assets/images/social_github.png" alt="GitHub">
           </a>
-          <!--<a href="https://www.sogehtsoftware.de/" target="_blank">
-            <img src="../assets/images/social_website.png" alt="Website">
-          </a>-->
         </div>
       </div>
     </header>
 
-    <main onresize="">
+    <main>
       <div id="overlay">
-        <section>
-          <app-tag *ngFor="let tag of this.tags, let i = index" [value]=tag [isHeader]=true [index]=i></app-tag> 
+        <section id="tagContainer">
+          <app-tag *ngFor="let tag of tags, let i = index" [value]=tag [isHeader]=true [index]=i></app-tag> 
         </section>
-        <div id="noProjects" class="row" *ngIf="divideProjectArrayIntoArraysForEachRow().length == 0">
-          <h3>Suche ergab keine Treffer</h3>
+        <div id="noProjects" class="row" *ngIf="getArraysForEachRow().length == 0">
+          <h3>{{ notFoundMessage }}</h3>
         </div>
-        <div class="row" *ngFor="let innerArray of divideProjectArrayIntoArraysForEachRow()">
-          <div class="card-container {{ getColumnWidthClass() }}" *ngFor="let project of innerArray">
+        <div class="row" *ngFor="let innerArray of getArraysForEachRow()">
+          <div [class]="'card-container ' + getColumnWidthClass()" *ngFor="let project of innerArray">
             <div class="card" >
               <app-project-tile [project]=project></app-project-tile>
             </div>
@@ -60,6 +64,6 @@
   </div>
 
   <footer>
-    &copy; {{ getCurrentYear() }} Saxonia Systems AG
+    &copy; {{ currentYear }} Saxonia Systems AG
   </footer>
 </div>

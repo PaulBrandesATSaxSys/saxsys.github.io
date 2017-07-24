@@ -1,7 +1,6 @@
 .tagButton {
     padding-left: 0;
 }
-
 .headerTag {
     margin-right: 10px;
     margin-top: 5px;
@@ -9,7 +8,17 @@
     font-size: 16px;
     border-radius: 0;
     padding: 5px 8px;
+    opacity: 0.6;
 }
+
+.selected {
+    opacity: 1;
+    border-style: dotted;
+    border-width: 1px;
+    border-color: black;
+    box-shadow: 0 0 transparent;
+}
+
 
 .btn0 {
     background-color: rgb(237, 114, 5);

@@ -1,6 +1,6 @@
 <div id="container" class="input-group">
   <input id="filter" class="form-control" [(ngModel)]="filterService.projectNameFilter" 
-    type="search" list="suggestionList" placeholder="Suche nach Projekten" />
+    type="search" list="suggestionList" placeholder="Search for projects" />
   <datalist id="suggestionList">
     <option *ngFor="let option of dataListValues" [value]="option" >
   </datalist>

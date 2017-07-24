@@ -1,6 +1,6 @@
 <button class="badge btn btn-link text-info tagButton {{ getIndexClass() }}" 
-  [style.opacity]="filterService.filterTags.includes(value) && isHeader ? '1' : '0.6'"
   [class.headerTag]="isHeader"
+  [class.selected]="filterService.filterTag == value && isHeader"
   (click)="tagButtonClick()" >
   {{ value }}
 </button>

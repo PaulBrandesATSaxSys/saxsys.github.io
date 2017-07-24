@@ -14,11 +14,10 @@ export class TagComponent {
   constructor(public filterService: FilterService) {}
 
   public tagButtonClick(): void {
-    const isSet = this.filterService.filterTags.includes(this.value);
-    if (isSet) {
-      this.filterService.removeFilterTag(this.value)
+    if (this.filterService.filterTag !== this.value) {
+      this.filterService.filterTag = this.value;
     } else {
-      this.filterService.addFilterTag(this.value);
+      this.filterService.filterTag = null;
     }
   }
 

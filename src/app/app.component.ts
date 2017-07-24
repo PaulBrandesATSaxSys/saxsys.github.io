@@ -10,15 +10,25 @@ import { ProjectService } from './services/project.service';
 })
 
 export class AppComponent {
+  public isInternetExplorer = false;
 
   constructor(private projectService: ProjectService, private filterService: FilterService) {
     // For running change detection
     // => Change between two or three columns per row
     window.addEventListener('resize', function() {});
+    window.addEventListener('scroll', function() {
+      const height = document.getElementById('background-image').clientHeight as number;
+      if (window.scrollY >= (200 + height * 0.03)) {
+        document.getElementById('tagContainer').className = 'tags-fixed-top';
+      } else {
+        document.getElementById('tagContainer').className = '';
+      }
+    });
+    const userAgent = navigator.userAgent;
+    this.isInternetExplorer = userAgent.startsWith('Mozilla/') && userAgent.endsWith('like Gecko');
   }
 
-// TODO: Rename
-  public divideProjectArrayIntoArraysForEachRow(): Array<Array<Project>> {
+  public getArraysForEachRow(): Array<Array<Project>> {
     const outerArray: Array<Array<Project>> = [];
     const projects = this.filterService.getFilteredProjects();
 
@@ -50,6 +60,15 @@ export class AppComponent {
     return this.projectService.tags;
   }
 
+  public get notFoundMessage(): string {
+    let message = 'There ';
+    message += this.filterService.projectNameFilter ? 'is no project "' + this.filterService.projectNameFilter + '"' : 'are no projects';
+    if (this.filterService.filterTag) {
+      message += ' in ' + this.filterService.filterTag;
+    }
+    return message + '.';
+  }
+
   public getColumnWidthClass() {
     if (window.matchMedia('(min-width: 1400px)').matches) {
       return 'col-lg-4';
@@ -58,7 +77,7 @@ export class AppComponent {
     }
   }
 
-  public getCurrentYear(): number {
+  public get currentYear(): number {
      return new Date().getFullYear();
   }
 }
